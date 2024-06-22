@@ -18,7 +18,7 @@ const COLORS = {
   white: "#fff", // used as text color
 };
 
-export const colorPrimary = "#ED4040E2";
+export const colorPrimary = "#96121246";
 
 const colorPrimarySelected = "#ED40409D";
 const colorPrimaryHover = "#F26363C5";

@@ -6,10 +6,13 @@ import AccountBalanceWalletRoundedIcon from '@mui/icons-material/AccountBalanceW
 import HandshakeIcon from '@mui/icons-material/Handshake';
 import * as React from 'react';
 import LinkItem from './LinkItem';
+import { useLocation } from 'react-router';
 import { useState, useEffect } from 'react';
 
 const MenuItem = ({ open }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const location = useLocation();
 
   return (
     <>
@@ -17,35 +20,35 @@ const MenuItem = ({ open }) => {
         itemPath={'/'}
         itemName={'Home'}
         itemIcon={<HomeIcon />}
-        // isActive={location.pathname === '/'}
+        isActive={location.pathname === '/'}
         open={open}
       />
       <LinkItem
-        itemPath={'/blood-centers'}
-        itemName={'Blood Centers'}
+        itemPath={'/donors'}
+        itemName={'Donors'}
         itemIcon={<ThumbsUpDownIcon />}
-        // isActive={location.pathname === '/send-tokens'}
+        isActive={location.pathname === '/donors'}
         open={open}
       />
       <LinkItem
-        itemPath={'/donate'}
-        itemName={'Donate'}
+        itemPath={'/centers'}
+        itemName={'Centers'}
         itemIcon={<CompareIcon />}
-        // isActive={location.pathname === '/my-transfers'}
+        isActive={location.pathname === '/centers'}
         open={open}
       />
       <LinkItem
-        itemPath={'/find-donor'}
-        itemName={'Find Donor'}
+        itemPath={'/blood-requests'}
+        itemName={'Blood Requests'}
         itemIcon={<AccountBalanceWalletRoundedIcon />}
-        // isActive={location.pathname === '/list-wallets'}
+        isActive={location.pathname === '/blood-requests'}
         open={open}
       />
        <LinkItem
-        itemPath={'/history'}
-        itemName={'History'}
+        itemPath={'/blood-entry'}
+        itemName={'Blood Entry'}
         itemIcon={<AccountBalanceWalletRoundedIcon />}
-        // isActive={location.pathname === '/list-wallets'}
+        isActive={location.pathname === '/blood-entry'}
         open={open}
       />
      
