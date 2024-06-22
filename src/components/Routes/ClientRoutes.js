@@ -1,18 +1,20 @@
 /* eslint-disable no-unused-vars */
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 // import Wallet from '../../pages/Wallet/Wallet';
-import Login from '../../pages/Login/Login';
+import DonorLogin from '../../pages/Login/Donor/Login';
 import Layout from '../layout/Layout';
-// import AuthContext from '../../store/auth-context';
+import DonorRegister from '../../pages/Login/Donor/Register';
+import Home from '../../pages/Home/Home';
+import CenterLogin from '../../pages/Login/Blood Center/Login';
+import CenterRegister from '../../pages/Login/Blood Center/Register';
+import AuthContext from '../../store/auth-context';
 // import SendTokens from '../../pages/SendTokens/SendTokens';
 import NotFound from '../../pages/NotFound/NotFound';
-// import { useContext } from 'react';
-// import MyTransfers from '../../pages/MyTransfers/MyTransfers';
-// import { TransfersProvider } from '../../store/TransfersContext';
-// import MyWallets from '../../pages/MyWallets/MyWallets';
-// import { WalletsProvider } from '../../store/WalletsContext';
-// import TrustRelationship from '../../pages/TrustRelationship/TrustRelationship';
-// import {TrustRelationshipsProvider} from '../../store/TrustRelationshipsContext';
+import { useContext } from 'react';
+import BloodRequests from '../../pages/BloodRequests';
+import Donors from '../../pages/Donors';
+import Centers from '../../pages/Centers';
+import BloodEntry from '../../pages/BloodEntry';
 
 // const ProtectedRoute = ({ isLoggedIn, redirectPath = '/login' }) => {
 //   if (!isLoggedIn) {
@@ -23,7 +25,7 @@ import NotFound from '../../pages/NotFound/NotFound';
 // };
 
 const ClientRoutes = () => {
-//   const authCtx = useContext(AuthContext);
+  // const authCtx = useContext(AuthContext);
 
   return (
     <Routes>
@@ -33,54 +35,46 @@ const ClientRoutes = () => {
           exact
           element={
             <Layout>
-              {/* <Wallet /> */}
-              <Login/>
+              <Home/>
             </Layout>
           }
         />
-        {/* <Route
-          path="/my-transfers"
+       <Route
+          path="/donors"
           exact
           element={
             <Layout>
-              <TransfersProvider>
-                <MyTransfers />
-              </TransfersProvider>
+                <Donors />
             </Layout>
           }
         />
-        <Route
-          path="/send-tokens"
+         <Route
+          path="/centers"
           exact
           element={
             <Layout>
-              <SendTokens />
+              <Centers />
             </Layout>
           }
         />
         <Route
-          path="/list-wallets"
+          path="/blood-requests"
           exact
           element={
             <Layout>
-              <WalletsProvider>
-                <MyWallets />
-              </WalletsProvider>
+                <BloodRequests />
             </Layout>
           }
         />
         <Route
-          path="/trust-relationship"
+          path="/blood-entry"
           exact
           element={
             <Layout>
-              <TrustRelationshipsProvider>
-                <TrustRelationship />
-              </TrustRelationshipsProvider>
-                
+                <BloodEntry />            
             </Layout>
           }
-        /> */}
+        /> 
         <Route
           path="*"
           element={
@@ -90,7 +84,10 @@ const ClientRoutes = () => {
           }
         />
       {/* </Route> */}
-      <Route path="login" element={<Login />} />
+      <Route path="login-donor" element={<DonorLogin />} />
+      <Route path="register-donor" element={<DonorRegister />} />
+      <Route path="login-center" element={<CenterLogin />} />
+      <Route path="register-center" element={<CenterRegister />} />
     </Routes>
   );
 };
