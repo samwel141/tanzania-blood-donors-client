@@ -3,22 +3,19 @@ import Layout from './components/layout/Layout.js';
 import ClientRoutes from './components/Routes/ClientRoutes';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './components/UI/theme';
-// import AuthProvider from './store/AuthProvider';
-// import { LocalizationProvider } from '@mui/x-date-pickers';
-// import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { BloodDonationProvider } from './store/ctx.js';
+
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
+      <BloodDonationProvider>
         <Router>
-          {/* <AuthProvider> */}
             <ClientRoutes>
               <Layout></Layout>
             </ClientRoutes>
-          {/* </AuthProvider> */}
         </Router>
-      {/* </LocalizationProvider> */}
+        </BloodDonationProvider>
     </ThemeProvider>
   );
 }
